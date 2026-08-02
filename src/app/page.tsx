@@ -35,9 +35,9 @@ export default async function HomePage() {
         <div className="max-w-5xl mx-auto px-4 py-12 sm:py-16 flex flex-col lg:flex-row items-center gap-8">
           <div className="flex-1 min-w-0">
             <h1 className="text-3xl sm:text-4xl font-bold leading-tight mb-4">
-              オフィスワーク・在宅ワークへの
+              オフィスワーク・在宅ワーク
               <br />
-              転職を成功させよう
+              への転職を成功させよう
             </h1>
             <p className="text-indigo-100 text-base sm:text-lg max-w-xl leading-relaxed mb-8">
               コールセンター・SNS運用代行・オンライン秘書。未経験からの始め方、働き方のリアル、案件の探し方までお届けします。
