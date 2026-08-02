@@ -1,9 +1,9 @@
-// 独自ドメイン導入時はCANONICAL_HOSTを設定し、REDIRECT_HOSTSに旧ホストを追加する
-const CANONICAL_HOST = null; // 例: "officework-tensyoku.com"
+const CANONICAL_HOST = "officework-blog.com";
 
+// プレビュー(*-officework-blog.….workers.dev)はリダイレクトしない
 const REDIRECT_HOSTS = [
-  // 例: "officework-blog.m-kondo1237-xk.workers.dev",
-  // 例: "www.officework-tensyoku.com",
+  "officework-blog.m-kondo1237-xk.workers.dev",
+  "www.officework-blog.com",
 ];
 
 export default {
