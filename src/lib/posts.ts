@@ -86,7 +86,9 @@ let cache: Post[] | null = null;
 
 /**
  * 全記事を取得(ビルド中はメモリキャッシュ)。
- * microCMS未設定時はサンプル記事を返す(本番ビルド前に環境変数を設定すること)。
+ * microCMS未設定・記事0件の場合はサンプル記事を返す
+ * (記事0件だと dynamic route の generateStaticParams が空になり
+ *  output: "export" のビルドが失敗するため)。
  */
 export async function getAllPosts(): Promise<Post[]> {
   if (cache) return cache;
@@ -97,7 +99,15 @@ export async function getAllPosts(): Promise<Post[]> {
     cache = SAMPLE_POSTS;
     return cache;
   }
-  cache = await fetchAllFromMicroCMS();
+  const posts = await fetchAllFromMicroCMS();
+  if (posts.length === 0) {
+    console.warn(
+      "[posts] microCMSに公開記事が0件のため、サンプル記事を表示しています。"
+    );
+    cache = SAMPLE_POSTS;
+    return cache;
+  }
+  cache = posts;
   return cache;
 }
 
