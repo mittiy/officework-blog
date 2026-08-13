@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { PostMeta } from "@/lib/posts";
+import { getThumbPath } from "@/lib/thumbs";
 import CategoryBadge from "./CategoryBadge";
 
 type Props = {
@@ -15,8 +16,20 @@ function formatDate(dateStr: string): string {
 }
 
 export default function PostCard({ post }: Props) {
+  const thumb = getThumbPath(post.id);
   return (
     <article className="bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow overflow-hidden">
+      {thumb && (
+        <Link href={`/blog/${post.category}/${post.id}`}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={thumb}
+            alt=""
+            className="w-full aspect-video object-cover"
+            loading="lazy"
+          />
+        </Link>
+      )}
       <div className="p-6">
         <div className="flex items-center gap-2 mb-3">
           <CategoryBadge category={post.category} asLink />

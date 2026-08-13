@@ -7,6 +7,7 @@ import {
   VALID_CATEGORIES,
 } from "@/lib/categories";
 import HeroIllustration from "@/components/HeroIllustration";
+import { getThumbPath } from "@/lib/thumbs";
 
 const CATEGORY_HOME_DESCRIPTIONS = {
   callcenter:
@@ -99,18 +100,29 @@ export default async function HomePage() {
             <div className="space-y-4">
               {latestPosts.map((post) => {
                 const colors = CATEGORY_COLORS[post.category];
+                const thumb = getThumbPath(post.id);
                 return (
                   <Link
                     key={post.id}
                     href={`/blog/${post.category}/${post.id}`}
                     className="group flex items-center gap-4 p-4 bg-white rounded-xl border border-gray-200 hover:border-indigo-300 hover:shadow-md transition-all"
                   >
-                    <div
-                      className={`w-24 h-16 sm:w-28 sm:h-[72px] flex-shrink-0 rounded-lg bg-gradient-to-br ${colors.gradient} flex items-center justify-center text-3xl sm:text-4xl`}
-                      aria-hidden
-                    >
-                      {CATEGORY_ICONS[post.category]}
-                    </div>
+                    {thumb ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img
+                        src={thumb}
+                        alt=""
+                        loading="lazy"
+                        className="w-24 h-16 sm:w-28 sm:h-[72px] flex-shrink-0 rounded-lg object-cover"
+                      />
+                    ) : (
+                      <div
+                        className={`w-24 h-16 sm:w-28 sm:h-[72px] flex-shrink-0 rounded-lg bg-gradient-to-br ${colors.gradient} flex items-center justify-center text-3xl sm:text-4xl`}
+                        aria-hidden
+                      >
+                        {CATEGORY_ICONS[post.category]}
+                      </div>
+                    )}
                     <div className="min-w-0">
                       <div className="flex items-center gap-2 mb-1.5">
                         <span

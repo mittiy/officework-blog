@@ -24,6 +24,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "ja_JP",
     siteName: SITE_NAME,
+    images: ["/og-default.jpg"],
   },
 };
 

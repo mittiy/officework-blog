@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getAllPosts, getPostById } from "@/lib/posts";
+import { getThumbPath } from "@/lib/thumbs";
 import CategoryBadge from "@/components/CategoryBadge";
 
 type Props = {
@@ -17,12 +18,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = await getPostById(slug);
   if (!post) return {};
+  const ogImage = post.coverImage?.url ?? getThumbPath(post.id);
   return {
     title: post.title,
     description: post.excerpt,
-    openGraph: post.coverImage
-      ? { images: [{ url: post.coverImage.url }] }
-      : undefined,
+    openGraph: ogImage ? { images: [{ url: ogImage }] } : undefined,
   };
 }
 
@@ -82,10 +82,10 @@ export default async function BlogPostPage({ params }: Props) {
         )}
       </header>
 
-      {post.coverImage && (
+      {(post.coverImage || getThumbPath(post.id)) && (
         // eslint-disable-next-line @next/next/no-img-element
         <img
-          src={post.coverImage.url}
+          src={post.coverImage?.url ?? getThumbPath(post.id)!}
           alt=""
           className="w-full rounded-xl mb-8"
         />

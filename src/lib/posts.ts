@@ -74,6 +74,8 @@ async function fetchAllFromMicroCMS(queries?: MicroCMSQueries): Promise<Post[]> 
     const res = await client.getList<MicroCMSPost>({
       endpoint: "blogs",
       queries: { ...queries, limit, offset, orders: "-publishedAt" },
+      // Next.jsのfetchキャッシュに古いレスポンスが残るのを防ぐ(常にビルド時点の最新を取得)
+      customRequestInit: { cache: "no-store" },
     });
     posts.push(...res.contents.map(toPost));
     offset += limit;

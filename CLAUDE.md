@@ -28,6 +28,12 @@ tensyoku-blog(genba-tensyoku.com)と同じ構成だが、記事管理はロー�
 
 `callcenter`(🎧青)/ `sns`(📱ピンク)/ `secretary`(💻緑)。定義は src/lib/categories.ts に集約(ラベル・色・説明・アイコン)。カテゴリ追加時はこのファイルだけ更新すればHeader/Footer/トップ/カテゴリページ/sitemapに反映される。
 
+## サムネイル
+
+- 記事サムネは `public/thumbs/<記事ID>.jpg`(1200x675 or 800x450、JPEG)。存在すればカード・トップ一覧・記事ページ・OGPに自動反映(src/lib/thumbs.ts)。無い記事はカテゴリ絵文字にフォールバック
+- サイト全体のOGPデフォルトは `public/og-default.jpg`(1200x630)
+- 元画像から作る場合はsharpで `resize(1200, 675, { fit: "cover" })` + `jpeg({ quality: 80 })`
+
 ## 運用
 
 - devサーバー: `npm run dev`(port 3001。launch.jsonの `officework-blog`)
