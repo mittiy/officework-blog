@@ -62,6 +62,27 @@ export default async function HomePage() {
         </div>
       </section>
 
+      {/* Roadmap banner */}
+      <section className="max-w-5xl mx-auto px-4 pt-10">
+        <Link
+          href="/roadmap"
+          className="group flex items-start gap-4 bg-white rounded-xl border-2 border-indigo-200 p-6 hover:border-indigo-400 hover:shadow-md transition-all"
+        >
+          <div className="text-4xl">🗺️</div>
+          <div className="min-w-0">
+            <h2 className="font-bold text-lg text-gray-900 mb-1">
+              在宅ワークの始め方 完全ロードマップ
+            </h2>
+            <p className="text-sm text-gray-600 leading-relaxed mb-2">
+              職種選びから最初の1ヶ月、収入の伸ばし方まで。未経験から働き始めるまでの道のりを6ステップで整理した保存版ガイド。
+            </p>
+            <span className="text-sm font-semibold text-indigo-600 group-hover:text-indigo-700">
+              ロードマップを見る →
+            </span>
+          </div>
+        </Link>
+      </section>
+
       {/* Category cards */}
       <section className="max-w-5xl mx-auto px-4 py-12">
         <h2 className="text-xl font-bold text-gray-900 mb-6">カテゴリーから探す</h2>

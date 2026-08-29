@@ -57,6 +57,14 @@ export default function Footer() {
                   記事一覧
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/roadmap"
+                  className="text-sm text-gray-400 hover:text-indigo-400 transition-colors"
+                >
+                  在宅ワークの始め方ロードマップ
+                </Link>
+              </li>
             </ul>
           </div>
         </div>

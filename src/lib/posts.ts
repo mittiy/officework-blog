@@ -71,11 +71,13 @@ async function fetchAllFromMicroCMS(queries?: MicroCMSQueries): Promise<Post[]> 
   let offset = 0;
   // 100件超でも全件取得できるようページング
   for (;;) {
+    // 注意: cache:"no-store"を指定するとoutput:"export"のビルドが
+    // 「dynamic扱い」で失敗することがある(レンダリング中にfetchが走った場合)。
+    // 鮮度はCloudflare側のビルドキャッシュ無効化で担保し、
+    // ローカルで古いデータが出たら rm -rf .next で対処する。
     const res = await client.getList<MicroCMSPost>({
       endpoint: "blogs",
       queries: { ...queries, limit, offset, orders: "-publishedAt" },
-      // Next.jsのfetchキャッシュに古いレスポンスが残るのを防ぐ(常にビルド時点の最新を取得)
-      customRequestInit: { cache: "no-store" },
     });
     posts.push(...res.contents.map(toPost));
     offset += limit;
