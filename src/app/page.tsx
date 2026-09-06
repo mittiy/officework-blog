@@ -62,8 +62,32 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Roadmap banner */}
+      {/* Resume builder banner */}
       <section className="max-w-5xl mx-auto px-4 pt-10">
+        <Link
+          href="/resume"
+          className="group flex flex-col sm:flex-row sm:items-center gap-4 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 p-6 text-white shadow-lg hover:shadow-xl hover:from-indigo-700 hover:to-violet-700 transition-all"
+        >
+          <div className="text-4xl">📝</div>
+          <div className="flex-1 min-w-0">
+            <div className="inline-flex items-center text-[11px] font-bold bg-white/20 rounded-full px-2.5 py-0.5 mb-1.5">
+              無料・登録不要・スマホOK
+            </div>
+            <h2 className="font-bold text-lg mb-1">
+              質問に答えるだけ。履歴書かんたん作成
+            </h2>
+            <p className="text-sm text-indigo-100 leading-relaxed">
+              選ぶだけの質問形式で、志望動機の文章まで自動で下書き。できた履歴書はそのまま印刷・PDF保存できます。
+            </p>
+          </div>
+          <span className="flex-shrink-0 inline-flex items-center justify-center px-5 py-2.5 bg-white text-indigo-700 font-bold rounded-full text-sm shadow group-hover:bg-indigo-50 transition-colors">
+            履歴書を作ってみる →
+          </span>
+        </Link>
+      </section>
+
+      {/* Roadmap banner */}
+      <section className="max-w-5xl mx-auto px-4 pt-6">
         <Link
           href="/roadmap"
           className="group flex items-start gap-4 bg-white rounded-xl border-2 border-indigo-200 p-6 hover:border-indigo-400 hover:shadow-md transition-all"

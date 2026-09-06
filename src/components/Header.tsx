@@ -37,6 +37,13 @@ export default function Header() {
               <span aria-hidden>🗺️</span>
               ロードマップ
             </Link>
+            <Link
+              href="/resume"
+              className="hidden sm:flex items-center gap-1.5 px-3.5 py-1.5 text-sm font-medium text-gray-600 bg-white border border-gray-200 rounded-full hover:text-indigo-600 hover:border-indigo-300 hover:bg-indigo-50 hover:shadow-sm transition-all"
+            >
+              <span aria-hidden>📝</span>
+              履歴書作成
+            </Link>
             {VALID_CATEGORIES.map((cat) => (
               <Link
                 key={cat}

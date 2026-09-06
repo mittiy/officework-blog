@@ -65,6 +65,14 @@ export default function Footer() {
                   在宅ワークの始め方ロードマップ
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/resume"
+                  className="text-sm text-gray-400 hover:text-indigo-400 transition-colors"
+                >
+                  履歴書かんたん作成
+                </Link>
+              </li>
             </ul>
           </div>
         </div>

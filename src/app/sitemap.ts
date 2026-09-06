@@ -19,6 +19,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: SITE_URL },
     { url: `${SITE_URL}/blog` },
     { url: `${SITE_URL}/roadmap` },
+    { url: `${SITE_URL}/resume` },
     ...categories,
     ...posts,
   ];
