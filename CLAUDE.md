@@ -33,6 +33,11 @@ tensyoku-blog(genba-tensyoku.com)と同じ構成だが、記事管理はロー�
 - 記事サムネは `public/thumbs/<記事ID>.jpg`(1200x675 or 800x450、JPEG)。存在すればカード・トップ一覧・記事ページ・OGPに自動反映(src/lib/thumbs.ts)。無い記事はカテゴリ絵文字にフォールバック
 - サイト全体のOGPデフォルトは `public/og-default.jpg`(1200x630)
 - 元画像から作る場合はsharpで `resize(1200, 675, { fit: "cover" })` + `jpeg({ quality: 80 })`
+- 画像生成AIが使えないときは `node scripts/make-svg-thumb.mjs <id> <category> "<1行目>" "<2行目>" "<サブ>" "<チップ1>" "<チップ2>" "<チップ3>"` で同じデザインの代替サムネを作れる(アイコンは図形で描画。sharpはカラー絵文字を描けない)
+
+## 週次の自動記事追加
+
+- デスクトップアプリのスケジュールタスク `officework-blog-weekly-articles`(毎週月曜10時)が、時期ネタ込みで3本(各カテゴリ1本)をサムネ付きで公開する。手順書は `~/.claude/scheduled-tasks/officework-blog-weekly-articles/SKILL.md`
 
 ## 運用
 
