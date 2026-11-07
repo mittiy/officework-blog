@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import XFollow from "@/components/XFollow";
 import { getAllPosts, getPostById } from "@/lib/posts";
 import { getThumbPath } from "@/lib/thumbs";
 import CategoryBadge from "@/components/CategoryBadge";
@@ -99,7 +100,7 @@ export default async function BlogPostPage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: post.content }}
       />
 
-      <hr className="border-gray-200 my-10" />
+      <XFollow />
 
       <div className="flex justify-between">
         <Link

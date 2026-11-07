@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { CATEGORY_LABELS, VALID_CATEGORIES } from "@/lib/categories";
-import { SITE_NAME } from "@/lib/site";
+import { SITE_NAME, X_HANDLE, X_URL } from "@/lib/site";
+import { XLogo } from "@/components/XFollow";
 
 export default function Footer() {
   return (
@@ -20,6 +21,15 @@ export default function Footer() {
             <p className="text-sm text-gray-400 leading-relaxed">
               コールセンター・SNS運用代行・オンライン秘書など、オフィスワーク&在宅ワークへの転職情報ブログです。
             </p>
+            <a
+              href={X_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-flex items-center gap-2 rounded-full border border-gray-700 px-4 py-2 text-sm text-gray-300 hover:border-indigo-400 hover:text-indigo-400 transition-colors"
+            >
+              <XLogo />
+              @{X_HANDLE}
+            </a>
           </div>
 
           <div>

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { SITE_NAME, SITE_URL, SITE_DESCRIPTION } from "@/lib/site";
+import { SITE_NAME, SITE_URL, SITE_DESCRIPTION, X_HANDLE } from "@/lib/site";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -25,6 +25,11 @@ export const metadata: Metadata = {
     locale: "ja_JP",
     siteName: SITE_NAME,
     images: ["/og-default.jpg"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: `@${X_HANDLE}`,
+    creator: `@${X_HANDLE}`,
   },
 };
 
