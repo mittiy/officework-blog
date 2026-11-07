@@ -6,5 +6,5 @@ export const SITE_DESCRIPTION =
   "コールセンター・カスタマーサポート、SNS運用代行、オンライン秘書など、オフィスワーク・在宅ワークへの転職情報ブログ。未経験からの始め方や仕事のリアルをお届けします。";
 
 // X(旧Twitter)公式アカウント
-export const X_HANDLE = "officework_navi";
+export const X_HANDLE = "officework_nav";
 export const X_URL = `https://x.com/${X_HANDLE}`;
